@@ -1,0 +1,105 @@
+<!DOCTYPE html> <!--Important-->
+<html>
+    
+    <head> <!--Properties of the web-page -->
+        
+        <meta charset="UTF-8">
+        <meta name="keywords" content="Object-Class Identifier">  <!--Optional, For Google SEO -->
+        <meta name="description" content="Object-Class Identifier Results">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Results</title> <!--What goes on the tab, and is bookmarked -->
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+        
+        <style>
+            .criteria {
+                font-weight: bold;
+            }
+        
+            .good {
+                background-color: palegreen;
+                text-align: center;
+                font-weight: bold;
+            }
+            
+            .bad {
+                background-color: lightpink;
+            }
+            
+            .footer {
+                position: fixed;
+                right: 20px;
+                bottom: 0;
+                background-color: red;
+                text-align: center;
+            }
+            
+        </style>
+        
+<!--        <script src="scripts/dummy.js"></script>        -->
+    </head>
+
+    <body>
+        
+        <div class="blockspace">
+        </div>
+
+        <header class="blockhead" id="stick" style="font-size: 150%; font-family:Arial; ">
+
+            <button class="btnleft" onclick="buttonPress()">
+                Back
+            </button>
+
+            Results
+
+            <button class="btnright" onclick="buttonPress2()">
+                Restart
+            </button>
+
+        </header>
+        
+        <table id="block-reference" class="blockset tableblock">
+            <caption>Candidate</caption>
+            <tr>
+                <th class="table-header">Criteria</th>
+                <th class="table-header">Results</th>
+            </tr>            
+            <tr>
+                <td class="criteria">Retained Information</td>
+                <td class="reason-field">Reason</td>
+            </tr>
+            <tr>
+                <td class="criteria">Needed Services</td>
+                <td class="reason-field">Reason</td>
+            </tr>  
+            <tr>
+                <td class="criteria">Multiple Attributes</td>
+                <td class="reason-field">Reason</td>
+            </tr>  
+            <tr>
+                <td class="criteria">Common Attributes</td>
+                <td class="reason-field">Reason</td>
+            </tr>  
+            <tr>
+                <td class="criteria">Common Operations</td>
+                <td class="reason-field">Reason</td>
+            </tr>  
+            <tr>
+                <td class="criteria">Essential Requirements</td>
+                <td class="reason-field">Reason</td>
+            </tr>
+            <tr class="table-end">
+                <th colspan="2">Verdict</th>
+            </tr>
+            <tr style="border-top: 1px dashed black;">
+                <td colspan="2" class="verdict-info">Information</td>
+            </tr>
+        </table>
+
+        
+        <script src="scripts/webpageNavigation.js"></script>        
+        <script src="scripts/duplicateblocksets.js"></script>
+        <script src="scripts/results.js"></script>
+
+    </body>
+
+</html>

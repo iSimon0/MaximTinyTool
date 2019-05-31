@@ -1,0 +1,408 @@
+<!DOCTYPE html> <!--Important--> 
+<html>
+<head> <!--Properties of the web-page -->
+	<meta charset="UTF-8"> 
+	<meta name="keywords" content="Object-Class Identifier">  <!--Optional, For Google SEO -->
+	<meta name="description" content="Object-Class Identifier Candidates">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Candidates</title> <!--What goes on the tab, and is bookmarked -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<div class="blockspace">
+</div>
+
+<style>
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  
+  font-size: 18px;
+  transition: 0.2s;
+  
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #eee;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+/* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Style the header */
+.header {
+  background-color: #f44336;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  cursor: pointer;
+  transition: 0.3s;
+  float:right;
+  background-color: #ffff66;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+}
+
+.addBtn:hover {
+  background-color: #b3b300;
+}
+
+
+
+
+div.block{
+
+	width: 42%;
+	
+	}
+	
+div.blocksmall{
+
+	width: 42%;
+	min-height: 0%!important;
+	padding: 0 0 0 0;
+	}	
+	
+	@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #container, div.block, div.blocksmall{
+        width: 100%;
+		margin-left: 0%;
+		min-height: 0%!important;
+    }
+	
+	@media only screen and (-webkit-min-device-pixel-ratio: 1.7),
+	only screen and (min-device-pixel-ratio: 1.7),
+	only screen and (min-resolution: 220dpi),
+	only screen and (min-resolution: 1.7dppx) {
+	#container, div.block, div.blocksmall{ 
+	width: 100%;
+	max-width: 100%;
+	min-width: 100%;
+	min-height: 0%!important;
+	font-size: 1em;
+	margin-left: 0%;
+</style>
+
+<header class="blockhead" id="stick" style="font-size: 150%; font-family:Arial; ">
+
+<button class="btnleft" onclick="buttonPress()">
+Restart
+</button>
+
+Candidates
+
+<button class="btnright" onclick="buttonPress2()">
+Next
+</button>
+
+</header>
+
+<script>
+function buttonPress(){
+	localStorage.clear();
+    location.href = "WelcomePage.html"
+}
+</script>
+
+<script>
+function buttonPress2(){
+	if(localStorage.length == 0)
+	alert("You must add atleast one candidate");
+	else
+    location.href = "Questionnaire.html"
+}
+</script>
+
+
+
+<!-- <div class="leftmargin"> -->
+<!-- <h2> </h2> -->
+<!-- </div> -->
+
+
+<div class="block">
+
+<div>
+  <h3>Add Candidates</h3>
+  <input type="text" id="myInput" placeholder="Type here" autofocus >
+  <span onclick="newElement()" id="ent" class="addBtn">Add</span>
+</div>
+
+</div>
+
+
+
+<script>
+
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+	
+  }
+}
+
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+   localStorage.setItem(inputValue, "");
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+	  var string = this.parentElement.textContent
+	  string = string.slice(0,-1);
+	  localStorage.removeItem(string);
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+  
+  
+  function loadPage(){
+	for(var i = 0; i < localStorage.length; i++){
+		var li = document.createElement("li");
+		var inputValue = document.getElementById("myInput").value;
+		var t = document.createTextNode(inputValue);
+		localStorage.setItem(inputValue, "");
+		li.appendChild(t);
+		if (inputValue === '') {
+			alert("You must write something!");
+		} else {
+			document.getElementById("myUL").appendChild(li);
+		}
+		document.getElementById("myInput").value = "";
+
+		var span = document.createElement("SPAN");
+		var txt = document.createTextNode("\u00D7");
+		span.className = "close";
+		span.appendChild(txt);
+		li.appendChild(span);
+	
+	
+		
+		}
+  }
+</script>
+
+
+
+<script>
+var input = document.getElementById("myInput");
+input.addEventListener('keyup',function(event)
+{
+	if(event.keyCode === 13 && input.value != "")
+	{
+		document.getElementById("ent").click();
+	}
+});
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<div class="blocksmall">
+
+<ul id="myUL" onload="onLoad()">
+  <!-- <li>Hit the gym</li> -->
+  <!-- <li class="checked">Pay bills</li> -->
+  <!-- <li>Meet George</li> -->
+  <!-- <li>Buy eggs</li> -->
+  <!-- <li>Read a book</li> -->
+  <!-- <li>Organize office</li> -->
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+<p id="Questionnaire"></p>
+
+<script>
+// Create an object:
+var Answers = {
+    RetainedInformation: "", 
+    NeededServices: "",
+    MultipleAtributes: "",
+    CommonAttributes: "",
+    CommonOperations: "",
+    EssentialRequirements: ""
+	
+};
+
+
+</script>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("stick");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+
+</script>
+
+
+
+
+
+
+<!-- <script> -->
+<!-- // When the user scrolls down 20px from the top of the document, show the button -->
+<!-- window.onscroll = function() {scrollFunction()}; -->
+
+<!-- function scrollFunction() { -->
+    <!-- if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) { -->
+        <!-- document.getElementById("myBtn").style.display = "block"; -->
+    <!-- } else { -->
+        <!-- document.getElementById("myBtn").style.display = "none"; -->
+    <!-- } -->
+<!-- } -->
+
+<!-- // When the user clicks on the button, scroll to the top of the document -->
+<!-- function topFunction() { -->
+    <!-- document.body.scrollTop = 0; // For Safari -->
+    <!-- document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera -->
+<!-- } -->
+
+</script>
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+
+</body>
+
+</html>

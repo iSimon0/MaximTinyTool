@@ -1,0 +1,260 @@
+<!DOCTYPE html> <!--Important--> 
+<html>
+<style>
+	div.blocksmall{
+	margin: auto;
+	width: 42%;
+	float: none;
+	}
+	
+	@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #container, div.blocksmall{
+        width: 100%;
+		margin-left: 0%;
+		min-height: 100px;
+    }
+	
+	@media only screen and (-webkit-min-device-pixel-ratio: 1.7),
+	only screen and (min-device-pixel-ratio: 1.7),
+	only screen and (min-resolution: 220dpi),
+	only screen and (min-resolution: 1.7dppx) {
+	#container, div.blocksmall{ 
+	width: 100%;
+	max-width: 100%;
+	min-width: 100%;
+	font-size: 1em;
+	margin-left: 0%;
+	
+
+	
+}
+}
+	
+</style>
+	
+	
+<head>
+	
+	
+	<!--Properties of the web-page -->
+	<meta charset="UTF-8"> 
+	<meta name="keywords" content="Object-Class Identifier">  <!--Optional, For Google SEO -->
+	<meta name="description" content="Object-Class Identifier Questionnaire">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Questionnaire</title> <!--What goes on the tab, and is bookmarked -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<div class="blockspace">
+</div>
+
+
+
+<header class="blockhead" id="stick" style="font-size: 150%; font-family:Arial; ">
+
+<button class="btnleft" onclick="buttonPress()">
+Back
+</button>
+
+Questionnaire
+
+<button class="btnright" onclick="buttonPress2()">
+Results
+</button>
+
+</header>
+
+<script>
+function buttonPress(){
+    localStorage.clear();
+	<!-- This is temporary -->
+    location.href = "Candidates.html"
+}
+</script>
+
+<script>
+function buttonPress2(){
+	var x = document.getElementsByClassName("blocksmall");
+	
+	for(var i = 0; i < localStorage.length; i++){
+		var results = "";
+		var a = x[i];
+		var y = a.getElementsByTagName("input");
+		for(var j = 0; j < y.length; j++){
+			// alert(j);
+			if(y[j].checked){
+				switch(y[j].value){
+					case "true":
+					// alert("Entered true");
+						results += 1;
+						break;
+					case "false":
+					// alert("Entered false");
+						results += 0;
+						break;
+					}
+				}
+			} 
+		// alert(results);
+		var name = localStorage.key(i);
+		localStorage.setItem(name, results);
+		// alert(localStorage.getItem(name));
+	}
+    location.href = "Results.html"
+}
+</script>
+
+
+<!-- <div class="leftmargin"> -->
+<!-- <h2> </h2> -->
+<!-- </div> -->
+
+<p id="Questionnaire"></p>
+
+<script>
+// Create an object:
+var Answers = {
+    RetainedInformation: "", 
+    NeededServices: "",
+    MultipleAtributes: "",
+    CommonAttributes: "",
+    CommonOperations: "",
+    EssentialRequirements: ""
+	
+};
+
+
+</script>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("stick");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+
+</script>
+
+<body>
+<div class="blocksmall" id="stickiest" >
+<h1>Candidate Name</h1>
+<p style="text-align:left">Will the object be useful during analysis if information 
+about it must be remembered so the system can function?</p>
+<form>
+	<label class="radio-inline">
+		<input type="radio" value="true" name="options1">True
+	</label>
+	<label class="radio-inline">
+		<input type="radio" value="false" name="options1"checked>False
+	</label>
+</form>
+<p style="text-align:left">Does the potential object have a set of identifiable 
+operations that change the values of its attributes in 
+some way?</p>
+<form>
+	<label class="radio-inline">
+		<input type="radio" value="true" name="options2" checked>True
+	</label>
+	<label class="radio-inline">
+		<input type="radio" value="false" name="options2">False
+	</label>
+</form>
+<p style="text-align:left">Does the object have multiple attributes?</p>
+<form>
+	<label class="radio-inline">
+		<input type="radio" value="true" name="options3" checked>True
+	</label>
+	<label class="radio-inline">
+		<input type="radio" value="false" name="options3">False
+	</label>
+</form>
+<p style="text-align:left">Does the object have a set of attributes that apply 
+to all occurences of the object?</p>
+<form>
+	<label class="radio-inline">
+		<input type="radio" value="true" name="options4" checked>True
+	</label>
+	<label class="radio-inline">
+		<input type="radio" value="false" name="options4">False
+	</label>
+</form>
+<p style="text-align:left">Does the object have a set of operations that apply
+to all occurences of the object?</p>
+<form>
+	<label class="radio-inline">
+		<input type="radio" value="true" name="options5" checked>True
+	</label>
+	<label class="radio-inline">
+		<input type="radio" value="false" name="options5">False
+	</label>
+</form>
+<p style="text-align:left">Does the object produce or consume information essential
+to the operation of any solution for the system?</p>
+<form>
+	<label class="radio-inline">
+		<input type="radio" value="true" name="options6" checked>True
+	</label>
+	<label class="radio-inline">
+		<input type="radio" value="false" name="options6">False
+	</label>
+</form>
+
+</div>
+<script>
+function blockLoop(){
+	var x = document.getElementById("stickiest");
+	for(var i = 0; i < localStorage.length - 1; i++){
+		var clone = x.cloneNode(true);
+		document.body.appendChild(clone);
+	}
+}
+blockLoop();
+</script>
+
+<script>
+function readCandidateName(){
+	var h = document.getElementsByClassName("blocksmall");
+	for(var i = 0; i < localStorage.length; i++){
+		var x = localStorage.key(i);
+		var y = h[i].getElementsByTagName("h1");
+		y[0].innerHTML = x; 
+		}
+}
+readCandidateName();
+</script>
+<!-- <script src="duplicateblocksets.js"></script> -->
+</body>
+<!-- <script> -->
+<!-- // When the user scrolls down 20px from the top of the document, show the button -->
+<!-- window.onscroll = function() {scrollFunction()}; -->
+
+<!-- function scrollFunction() { -->
+    <!-- if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) { -->
+        <!-- document.getElementById("myBtn").style.display = "block"; -->
+    <!-- } else { -->
+        <!-- document.getElementById("myBtn").style.display = "none"; -->
+    <!-- } -->
+<!-- } -->
+
+<!-- // When the user clicks on the button, scroll to the top of the document -->
+<!-- function topFunction() { -->
+    <!-- document.body.scrollTop = 0; // For Safari -->
+    <!-- document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera -->
+<!-- } -->
+
+</script>
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+
+</body>
+
+</html>

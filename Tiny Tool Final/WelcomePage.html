@@ -1,0 +1,230 @@
+<!DOCTYPE html> <!--Important--> 
+<html>
+<head> <!--Properties of the web-page -->
+	<meta charset="UTF-8"> 
+	<meta name="keywords" content="Object-Class Identifier">  <!--Optional, For Google SEO -->
+	<meta name="description" content="Object-Class Identifier Welcome">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Object-Class Identifier</title> <!--What goes on the tab, and is bookmarked -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style> 
+			h2{
+				border-radius: 25px;
+				background: #cfb2ee;
+				padding: 20px;
+				width: 470px;
+				height: 55px;
+				
+				text-align:center;
+			}
+			
+		
+			
+			p{
+				font-family: "Arial";
+				text-align:center;
+			}
+			
+			@media only screen and (max-width: 768px) {
+			/* For mobile phones: */
+			#container, h2{
+				width: 100%;
+				height: 75px;
+			}
+			}
+			
+			@media only screen and (-webkit-min-device-pixel-ratio: 1.7),
+			only screen and (min-device-pixel-ratio: 1.7),
+			only screen and (min-resolution: 220dpi),
+			only screen and (min-resolution: 1.7dppx) {
+			#container, h2{ 
+				width: 100%;
+				height: 75px;
+			}
+			}
+			<!-- .btnright { -->
+				  <!-- background-color: #4CAF50; /* Green */ -->
+				  <!-- border: none; -->
+				  <!-- color: white; -->
+				  <!-- padding: 22px 32px; -->
+				  <!-- text-align: center; -->
+				  <!-- text-decoration: none; -->
+				  <!-- display: inline-block; -->
+				  <!-- font-size: 20px; -->
+				  <!-- margin: 4px 2px; -->
+				  <!-- cursor: pointer; -->
+				  <!-- border-radius: 8px; -->
+				<!-- } -->
+	
+	</style>
+	
+	
+</head>
+
+<body>
+
+
+
+<div class="blockspace">
+</div>
+
+
+
+<header class="blockhead" id="stick" style="font-size: 150%; font-family:Arial; ">
+<font color="white"><b>Object-Class Identifer</b></font>
+
+<button class="btnright" onclick="buttonPress()">
+Start
+</button>
+
+
+</header>
+
+<script>
+function buttonPress(){
+	localStorage.clear();
+    location.href = "Candidates.html"
+}
+</script>
+<!-- <div class="leftmargin"> -->
+<!-- <h2> </h2> -->
+<!-- </div> -->
+
+
+<div class="block" align="center">
+
+<h2> <a name = "h-12.1">Welcome Page</a> </h2>
+
+<p align = "left" > <br>Working on a software project and not really sure how to identify your 
+				   classes<br> and objects?</p>
+<p align = "left" >We know Identifying classes and objects for a program can be a bit tricky. 
+				   We<br> built this web application to help programmers decide if their "potential 
+				   class"<br> is worthy of being called a class. <br></p>
+
+
+</div>
+
+
+
+<div class="blocksmall">
+
+<p><a href= "#h-12.1">Welcome Page</a></p>
+<p><a href= "#h-12.2">Web Tool Guide</a></p>
+<p><a href= "#h-12.3">The Team</a></p>
+<p></p>
+<p></p>
+
+</div>
+
+
+
+
+
+
+<div class="block" align="center">
+
+<h2><a name= "h-12.2">Your Web Tool Guide!</a></h2>
+<p align= "left" ><br>This tool is designed to help you ensure potential classes are indeed classes.</p>
+<p align= "left">	1) Before you start you should have a list of your potential classes</p>
+<p align= "left">	2) In the top right-hand corner of this page you will find a "Start Button"
+ <br>   This will take you to a web page to enter in your candidates</p>
+
+<p align= "left">	3) Once you've entered in all of your candidates, at the top right-hand corner 
+ <br> you will find another "Next Button", this will take you to the questionnaire <br>page where you 
+  will be asked to answer questions about each candidate. <br>Once done, press the Next Button</p>
+<p align= "left">	4) Here you will find given the results for each<br>candidate. A short description will
+					  appear for each candidate that will not be considered a class <br><br></p>
+
+</div>
+
+
+<div class="blocksmall">
+
+<img src="pic.jpg" alt="The Entire Team" style="width: 70%;height: 1000%;">
+The Entire Team
+</div>
+
+
+
+<div class="block" align="center">
+<h2><a name= "h-12.3">About The Team</a></h2>
+<p align= "left">Group 10 is a team of software engineers and computer scientist
+<br> assembled by Dr. Bruce Maxim at the University of Michigan in 
+<br> Dearborn. Here to provide you with a tool to assist you on your
+<br> software building journey</p>
+<p align= "left">The Team: Mitchel Myers, Adam Alsayad, Noor Mahmoud, & Ian Simon</p>
+<p><a href="#h-12.1">Back to Top</a></p>
+
+</div>
+
+<div class="blocksmall">
+
+<img src="umd.png" alt="UofM" style="width: 200px;height: 200px;">
+
+</div>
+
+<p id="Questionnaire"></p>
+
+<script>
+// Create an object:
+var Answers = {
+    RetainedInformation: "", 
+    NeededServices: "",
+    MultipleAtributes: "",
+    CommonAttributes: "",
+    CommonOperations: "",
+    EssentialRequirements: ""
+	
+};
+
+
+</script>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("stick");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+
+</script>
+
+
+
+
+
+
+<!-- <script> -->
+<!-- // When the user scrolls down 20px from the top of the document, show the button -->
+<!-- window.onscroll = function() {scrollFunction()}; -->
+
+<!-- function scrollFunction() { -->
+    <!-- if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) { -->
+        <!-- document.getElementById("myBtn").style.display = "block"; -->
+    <!-- } else { -->
+        <!-- document.getElementById("myBtn").style.display = "none"; -->
+    <!-- } -->
+<!-- } -->
+
+<!-- // When the user clicks on the button, scroll to the top of the document -->
+<!-- function topFunction() { -->
+    <!-- document.body.scrollTop = 0; // For Safari -->
+    <!-- document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera -->
+<!-- } -->
+
+</script>
+
+
+<!-- <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> -->
+
+
+</body>
+
+</html>
